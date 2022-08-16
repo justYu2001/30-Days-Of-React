@@ -1,0 +1,47 @@
+.list {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+
+    margin: 0;
+    padding: 20px;
+
+    list-style: none;
+}
+
+.link {
+    position: relative;
+}
+
+.link a {
+    padding: 0 10px;
+
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link a::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-bottom: 2px solid #000;
+    transition: 0.2s all linear;
+}
+
+.link:hover a::before,
+.link .isActiveLink::before {
+    width: 100%;
+}
+
+.link:hover + .link a::before {
+    left: 100%;
+}
+
+.link:hover + .link .isActiveLink::before {
+    left: 0;
+}
